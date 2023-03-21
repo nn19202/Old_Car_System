@@ -1,0 +1,7 @@
+- UPDATED: crawl brand - grade into pkl file (improve performance)
+- insert into DB cloud
+
+
+
+- csv: write cho nhanh 
+- excel: mng dom cho dễ 
