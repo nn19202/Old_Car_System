@@ -1,8 +1,3 @@
-- UPDATED: crawl brand - grade into pkl file (improve performance)
-- UPDATED: crawl thêm các trường giá trị bên ngoài khi chưa thực hiện requests.
+- UPDATE: crawl brand - grade into pkl file (improve performance)
+- UPDATE: crawl thêm các trường giá trị bên ngoài khi chưa thực hiện requests.
 - insert into DB cloud
-
-
-
-- csv: write cho nhanh 
-- excel: mng dom cho dễ 
