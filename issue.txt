@@ -1,4 +1,5 @@
 - UPDATED: crawl brand - grade into pkl file (improve performance)
+- UPDATED: crawl thêm các trường giá trị bên ngoài khi chưa thực hiện requests.
 - insert into DB cloud
 
 
