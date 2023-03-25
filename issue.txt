@@ -1,3 +1,2 @@
-- UPDATE: crawl brand - grade into pkl file (improve performance)
-- UPDATE: crawl thêm các trường giá trị bên ngoài khi chưa thực hiện requests.
-- insert into DB cloud
+- insert into DB cloud 
+- tiếp tục theo flow yêu cầu của cô
