@@ -1,2 +1,3 @@
+- update proxy cho crawl 
 - insert into DB cloud 
 - tiếp tục theo flow yêu cầu của cô

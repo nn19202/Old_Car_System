@@ -80,8 +80,11 @@ with open('car.csv', 'w', newline='', encoding = 'utf8') as csv_file, open('cont
             phones = []
             for phone in cus_info.find_all('span', class_ = 'cphone'):
                 number = phone.text.replace(' ', '').strip()
-                if 'document' in number: 
-                    number = re.search(r'\d+', number).group()
+                if 'document' in number:
+                    try: 
+                        number = re.search(r'\d+', number).group()
+                    except: 
+                        number = ''
                 
                 number = '@' + number
                 phones.append(number)
