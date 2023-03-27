@@ -43,6 +43,10 @@ with open('car.csv', 'w', newline='', encoding = 'utf8') as csv_file, open('cont
             span = soup.find('div', class_= 'breadcrum')
 
             raw1 = [ele.text.strip().replace('Loading...', '') for ele in span.find_all('strong')]
+
+            if len(raw1) < 3: # brand - grade - year ==> fix miss year 
+                raw1.insert(2, '')
+
             name = [ele.text for ele in span.find_all('i')]
             lotno = span.find('span', text = re.compile(r'Mã tin :')).text.replace('Mã tin : ', '').strip()
             price = soup.find('h1').text.split('- ')[-1].strip()
