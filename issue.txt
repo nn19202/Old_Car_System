@@ -1,3 +1,6 @@
-- convert thay vì writer data vào file csv thì đổ thằng vào database local (sqlite)
-- insert data into DB cloud
-- tiếp tục theo flow yêu cầu của cô
+- Đang save dữ liệu crawl ở sqlite local
+
+                                                                    CONFIRMED:
+(UPDATE dữ liệu crawl thì đưa thẳng lên cloud  ==> clean    ==> connect tableau, powerBi với dữ liệu cloud   
+                                                            ==> connect dữ liệu trực tuyến để lấy bằng python và thực hiện training model --> save pkl file)
+- WEB APP 

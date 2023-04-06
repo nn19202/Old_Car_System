@@ -42,10 +42,10 @@ class Crawling:
         self.driver.switch_to.window(self.driver.window_handles[1])
         return
     
-    def back_first_tab(self):
-        self.driver.switch_to.window(self.driver.window_handles[0])
+    def closeTab(self): 
+        self.driver.close()
         return
-    
+
     def quitDriver(self): 
         self.driver.quit()
         return
@@ -174,8 +174,10 @@ class Crawling:
 
                 except Exception as e: 
                     print(e)
-            self.back_first_tab()
-            time.sleep(1)
+                # time.sleep(0.5)
+            self.closeTab()
+
+            time.sleep(2)
         self.quitDriver()
     
 bot = Crawling()
