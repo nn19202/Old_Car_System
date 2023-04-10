@@ -1,11 +1,15 @@
+# import library
 from bs4 import BeautifulSoup
 import requests
 import re
-import sqlite3
 import time
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 
+# import my module 
+from functionSQL import *  
+
+# my script 
 class CrawlingBot: 
     def __init__(self, url_page = 'https://bonbanh.com/') -> None:
         self.url_page = url_page
@@ -123,28 +127,14 @@ class CrawlingBot:
         
         return buyerJson
     
-    def insert_car_data(self, data, conn, cursor): 
-        cursor.execute('''INSERT OR IGNORE INTO CAR_DETAIL 
-                        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)''', data)
-        conn.commit()
-        return
-    
-    def insert_buyer_data(self, data, conn, cursor): 
-        cursor.execute('''INSERT OR IGNORE INTO BUYER
-                        VALUES (?, ?, ?, ?, ?, ?)''', data)
-        conn.commit()
-        return
-    
     def crawl_data(self):
         numberofPages = self.get_npages()
         time.sleep(0.5)
 
         # for idx in range(1, numberofPages+1): 
-        for idx in range(200, numberofPages+1):
+        for idx in range(1, 2):
 
-            conn = sqlite3.connect('data.db')
-            cursor = conn.cursor() 
-
+            conn, cursor = connect_database()
 
             lst_url_car = self.getUrl(idx)
             print(f'<=============== Crawling Page {idx} ===============>')
@@ -155,10 +145,10 @@ class CrawlingBot:
 
                 try:
                     carJson, lotno = self.crawl_car_data(soup, url)
-                    self.insert_car_data(list(carJson.values()), conn, cursor)
+                    insert_car_data(list(carJson.values()), conn, cursor)
 
                     buyerJson = self.car_buyer_data(soup, lotno)
-                    self.insert_buyer_data(list(buyerJson.values()), conn, cursor)
+                    insert_buyer_data(list(buyerJson.values()), conn, cursor)
 
                 except Exception as e: 
                     print(e)
